@@ -1,0 +1,68 @@
+# ══════════════════════════════════════════════════════════
+# MBOA' JOAJU — Archivos que NO deben subirse a Git
+# ══════════════════════════════════════════════════════════
+
+# ── Configuración local del servidor ────────────────────
+config/config.php
+config/database.php
+config/admin.cfg
+
+# ── Archivos subidos por usuarios ────────────────────────
+# Ignorar todo el contenido de uploads
+uploads/**
+# Excepto los archivos de control y las carpetas
+!uploads/.gitkeep
+!uploads/.htaccess
+!uploads/publicaciones/
+!uploads/entregas/
+!uploads/publicaciones/.gitkeep
+!uploads/entregas/.gitkeep
+
+# ── Logs ─────────────────────────────────────────────────
+logs/**
+!logs/.gitkeep
+!logs/.htaccess
+
+# ── Backups ──────────────────────────────────────────────
+*.sql
+*.sql.gz
+backups/
+!database/mboaJoaju.sql
+
+# ── Archivos de respaldo ─────────────────────────────────
+*.bak
+*.backup
+*.old
+*.orig
+*~
+
+# ── Variables de entorno ─────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Archivos temporales del sistema ──────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Archivos temporales de editores ──────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# ── Archivos temporales de PHP ───────────────────────────
+*.log
+error_log
+php_errors.log
+
+# ── Dependencias ─────────────────────────────────────────
+node_modules/
+vendor/
+
+# ── Archivos de prueba ───────────────────────────────────
+test-*.php
+test-*.html
+prueba-*.php

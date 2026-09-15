@@ -1,0 +1,16 @@
+# ============================================================
+# LOGS / .HTACCESS — Bloquear acceso web a los logs
+# Mboa' Joaju v2.0
+# ============================================================
+
+# Bloquear TODO acceso desde el navegador
+Order Deny,Allow
+Deny from all
+
+# Deshabilitar listado de directorios
+Options -Indexes
+
+# Eliminar headers
+<IfModule mod_headers.c>
+    Header unset X-Powered-By
+</IfModule>

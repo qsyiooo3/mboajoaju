@@ -1,0 +1,11 @@
+# ============================================================
+# CONFIG / .HTACCESS — Bloquear acceso web a la configuración
+# Mboa' Joaju v2.0
+# ============================================================
+
+# Bloquear TODO acceso desde el navegador
+Order Deny,Allow
+Deny from all
+
+# Deshabilitar listado de directorios
+Options -Indexes

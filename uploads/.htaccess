@@ -1,0 +1,33 @@
+# ============================================================
+# UPLOADS / .HTACCESS — Protección de archivos subidos
+# Mboa' Joaju v2.0
+# ============================================================
+
+# ── Bloquear ejecución de scripts ─────────────────────────
+Options -ExecCGI -Indexes
+
+# ── Remover manejadores de PHP ────────────────────────────
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+
+RemoveHandler .php .php3 .php4 .php5 .php7 .phtml .phps .cgi .pl .py .jsp .asp .aspx .sh .bash
+AddType application/octet-stream .php .php3 .php4 .php5 .php7 .phtml .phps .cgi .pl .py .jsp .asp .aspx .sh .bash
+
+# ── Permitir SOLO ciertas extensiones ────────────────────
+<FilesMatch "\.(pdf|doc|docx|xls|xlsx|ppt|pptx|jpg|jpeg|png|gif|webp|zip|rar|txt)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# ── Forzar descarga (no mostrar en navegador) ─────────────
+<FilesMatch "\.(php|phtml|phps|cgi|pl|py|jsp|asp|aspx|sh|bash)$">
+    ForceType application/octet-stream
+    Header set Content-Disposition "attachment"
+</FilesMatch>
+
+# ── Eliminar headers peligrosos ───────────────────────────
+<IfModule mod_headers.c>
+    Header unset X-Powered-By
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>

@@ -1,0 +1,11 @@
+# ============================================================
+# DATABASE / .HTACCESS — Bloquear acceso web al SQL
+# Mboa' Joaju v2.0
+# ============================================================
+
+# Bloquear TODO acceso
+Order Deny,Allow
+Deny from all
+
+# Deshabilitar listado
+Options -Indexes

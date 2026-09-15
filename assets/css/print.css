@@ -1,0 +1,201 @@
+/* ============================================================
+   MBOA' JOAJU — print.css
+   Estilos de impresión para boletines y reportes
+   Se carga SOLO al imprimir
+   ============================================================ */
+
+@media print {
+    /* ── Reset ──────────────────────────────────────────── */
+    * {
+        background: transparent !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* ── Ocultar elementos no imprimibles ───────────────── */
+    .sidebar,
+    .sidebar-overlay,
+    .topbar,
+    .toolbar,
+    .btn-primary,
+    .btn-secondary,
+    .btn-logout,
+    .btn-sm,
+    .btn-form,
+    .btn-edit,
+    .btn-danger,
+    .btn-success,
+    .btn-info,
+    .btn-warning,
+    .close-modal,
+    .modal-overlay,
+    .search-box,
+    .filter-group,
+    .action-buttons,
+    .canal-actions,
+    .pub-accion,
+    .tarea-accion,
+    .alerta,
+    .toast,
+    .loader-overlay,
+    .spinner,
+    .btn-sidebar-toggle {
+        display: none !important;
+    }
+
+    /* ── Layout ─────────────────────────────────────────── */
+    body {
+        font-size: 12pt;
+        font-family: 'Times New Roman', serif;
+        line-height: 1.4;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        display: block !important;
+    }
+
+    .content-body {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* ── Encabezado de impresión ────────────────────────── */
+    .content-body::before {
+        content: "Mboa' Joaju — CTA Augusto Roa Bastos";
+        display: block;
+        font-size: 16pt;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20pt;
+        padding-bottom: 10pt;
+        border-bottom: 2px solid #000;
+    }
+
+    /* ── Cards ──────────────────────────────────────────── */
+    .card {
+        border: 1px solid #999 !important;
+        border-radius: 0 !important;
+        padding: 12pt !important;
+        margin-bottom: 12pt !important;
+        page-break-inside: avoid;
+    }
+
+    .card h2,
+    .card h3 {
+        color: #000 !important;
+        border-bottom: 1px solid #666 !important;
+        font-size: 14pt;
+        margin-bottom: 8pt;
+    }
+
+    .card h3::before {
+        display: none;
+    }
+
+    /* ── Tablas ─────────────────────────────────────────── */
+    table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        page-break-inside: avoid;
+    }
+
+    thead th {
+        background: #e0e0e0 !important;
+        color: #000 !important;
+        border: 1px solid #666 !important;
+        padding: 6pt 8pt !important;
+        font-size: 10pt;
+        text-align: left;
+    }
+
+    tbody td {
+        border: 1px solid #ccc !important;
+        padding: 5pt 8pt !important;
+        color: #000 !important;
+        font-size: 10pt;
+    }
+
+    tbody tr:nth-child(even) td {
+        background: #f5f5f5 !important;
+    }
+
+    /* ── Badges en impresión ────────────────────────────── */
+    .badge {
+        background: #fff !important;
+        color: #000 !important;
+        border: 1px solid #666 !important;
+        font-size: 9pt;
+        padding: 1pt 4pt !important;
+    }
+
+    /* ── Enlaces ────────────────────────────────────────── */
+    a {
+        color: #000 !important;
+        text-decoration: underline !important;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #666;
+        font-style: italic;
+    }
+
+    /* Excepciones: no mostrar URL de enlaces internos */
+    a[href^="#"]::after,
+    a[href^="javascript"]::after {
+        content: "";
+    }
+
+    /* ── Code ───────────────────────────────────────────── */
+    code {
+        background: #f0f0f0 !important;
+        border: 1px solid #ccc !important;
+        padding: 1pt 3pt !important;
+        font-size: 9pt;
+    }
+
+    /* ── Evitar saltos dentro de elementos ─────────────── */
+    .publicacion-item,
+    .tarea-card,
+    .activity-item,
+    .profile-field,
+    .canal-card,
+    .stat-card,
+    .alerta {
+        page-break-inside: avoid;
+    }
+
+    /* ── Saltos de página ───────────────────────────────── */
+    .page-break {
+        page-break-after: always;
+    }
+
+    .page-break-before {
+        page-break-before: always;
+    }
+
+    /* ── Estilos de boletín (personalizados) ───────────── */
+    .boletin-header {
+        text-align: center;
+        margin-bottom: 16pt;
+    }
+
+    .boletin-titulo {
+        font-size: 18pt;
+        font-weight: bold;
+        margin-bottom: 4pt;
+    }
+
+    .boletin-subtitulo {
+        font-size: 11pt;
+        color: #333;
+    }
+
+    /* ── Ocultar imágenes decorativas ──────────────────── */
+    img:not(.logo-print) {
+        max-width: 100px;
+    }
+}
